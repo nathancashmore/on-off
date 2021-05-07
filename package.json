@@ -14,7 +14,8 @@
     "boom": "^7.3.0",
     "debug": "~2.6.9",
     "express": "~4.16.0",
-    "heroku-logger": "^0.3.1"
+    "heroku-logger": "^0.3.1",
+    "onoff": "^6.0.3"
   },
   "devDependencies": {
     "chai": "^4.1.2",
