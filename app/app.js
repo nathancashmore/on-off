@@ -4,6 +4,7 @@ const logger = require('heroku-logger');
 const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
+const iftttRouter = require('./routes/ifttt');
 
 const app = module.exports = express();
 
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/', indexRouter);
+app.use('/ifttt/v1', iftttRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
