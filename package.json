@@ -1,0 +1,48 @@
+{
+  "name": "on-off",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm run www",
+    "www": "node ./bin/www",
+    "lint": "./node_modules/.bin/eslint . --fix",
+    "mocha": "NODE_ENV=test mocha --exit --recursive --timeout 10000",
+    "test": "NODE_ENV=test npm run lint && npm run mocha"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "boom": "^7.3.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-favicon": "^2.0.1",
+    "express-session": "^1.15.6",
+    "getconfig": "^4.5.0",
+    "heroku-logger": "^0.3.1",
+    "http-errors": "~1.6.2",
+    "http-server": "^0.12.3",
+    "jmespath": "^0.15.0",
+    "js-cookie": "^2.2.0",
+    "jsonfile-promised": "0.0.1",
+    "morgan": "~1.9.0",
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "sinon": "^7.2.3",
+    "winson": "^1.0.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "lodash": "^4.17.21",
+    "mocha": "^5.2.0",
+    "nock": "^10.0.6",
+    "puppeteer": "^1.17.0",
+    "zombie": "^6.1.3"
+  }
+}
