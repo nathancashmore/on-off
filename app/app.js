@@ -2,12 +2,20 @@ const boom = require('boom');
 const express = require('express');
 const logger = require('heroku-logger');
 const bodyParser = require('body-parser');
+const config = require('getconfig');
 
 const indexRouter = require('./routes/index');
 const iftttRouter = require('./routes/ifttt');
 
 const app = module.exports = express();
 
+// Global variables
+const iftttAuthCode = process.env.IFTTT_AUTH || config.IFTTT_AUTH;
+
+app.locals.iftttAuthCode = iftttAuthCode;
+logger.info(`IFTTT Auth code set to ${iftttAuthCode}`);
+
+// Routes
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
