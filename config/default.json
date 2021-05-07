@@ -1,9 +1,0 @@
-{
-  "REDIS_URL": "redis://localhost:6379/1",
-  "DATABASE_URL" : "postgres://postgres:password@localhost/game_scout",
-  "DATA_API_KEY" : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "REPLAY": "bloody",
-  "SEEDS_DIR" : "./live",
-  "SESSION_SECRET" : "shhhhhhhh",
-  "POLL_INTERVAL" : 300000
-}

@@ -1,5 +1,0 @@
-{
-  "DATABASE_URL" : "postgres://postgres:password@localhost/game_scout_test",
-  "REPLAY": "replay",
-  "SEEDS_DIR" : "./test"
-}
