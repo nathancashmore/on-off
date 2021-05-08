@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "boom": "^7.3.0",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "getconfig": "^4.5.0",
     "heroku-logger": "^0.3.1",
-    "onoff": "^6.0.3",
-    "getconfig": "^4.5.0"
+    "lodash": "^4.17.21",
+    "onoff": "^6.0.3"
   },
   "devDependencies": {
     "chai": "^4.1.2",

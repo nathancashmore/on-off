@@ -1,4 +1,3 @@
-const boom = require('boom');
 const express = require('express');
 const logger = require('heroku-logger');
 const bodyParser = require('body-parser');
@@ -6,6 +5,7 @@ const config = require('getconfig');
 
 const indexRouter = require('./routes/index');
 const iftttRouter = require('./routes/ifttt');
+const HttpError = require('./model/httpError');
 
 const app = module.exports = express();
 
@@ -27,16 +27,19 @@ app.use('/ifttt/v1', iftttRouter);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   logger.error(`Unable to find route for [${req.method}] - ${req.url}`);
-  next(boom.notFound());
+  next(new HttpError().notFound);
 });
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-  boom.boomify(err);
   logger.error(`Problem occurred at [${req.method}] - ${req.url} - ${err}`);
-
-  res.status(err.output.statusCode);
-  res.json({ error: err });
+  res.status(err.status).json({
+    errors: [
+      {
+        message: err.statusMessage
+      }
+    ]
+  });
 });
 
 module.exports = app;
