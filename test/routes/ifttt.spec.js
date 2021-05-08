@@ -141,6 +141,7 @@ describe('IFTTT', () => {
       .send(payload)
       .end((err, res) => {
         expect(res.status).to.equal(400);
+        expect(res.body.errors[0].message).to.equal('Invalid actionFields');
         done();
       });
   });

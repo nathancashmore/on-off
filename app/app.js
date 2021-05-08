@@ -33,10 +33,11 @@ app.use((req, res, next) => {
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   logger.error(`Problem occurred at [${req.method}] - ${req.url} - ${err}`);
+
   res.status(err.status).json({
     errors: [
       {
-        message: err.statusMessage
+        message: err.message
       }
     ]
   });
