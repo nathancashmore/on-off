@@ -145,4 +145,33 @@ describe('IFTTT', () => {
         done();
       });
   });
+
+  it('should provide IFTTT with 400 response for /actions/switch when invalid state', (done) => {
+    const endpoint = '/ifttt/v1/actions/switch';
+
+    const payload = {
+      actionFields: {
+        state: 'RUBBISH'
+      },
+      user: {
+        id: 1,
+        timezone: 'Europe/London'
+      },
+      ifttt_source: {
+        id: '1',
+        url: 'https://ifttt.com/fairy-light/1'
+      }
+    };
+
+    chai.request(server)
+      .post(endpoint)
+      .set('Accept', 'application/json')
+      .set('IFTTT-Service-Key', VALID_KEY)
+      .send(payload)
+      .end((err, res) => {
+        expect(res.status).to.equal(400);
+        expect(res.body.errors[0].message).to.equal('Invalid state for action, must be ON or OFF');
+        done();
+      });
+  });
 });
