@@ -1,9 +1,9 @@
 const express = require('express');
 const logger = require('heroku-logger');
 const _ = require('lodash');
+const { Gpio } = require('onoff');
 const { ErrorWithStatus } = require('../model/httpError');
 
-const { Gpio } = require('onoff');
 
 const router = express.Router();
 
@@ -72,7 +72,7 @@ router.post('/actions/switch', async (req, res, next) => {
 
   res.json({
     data: [
-      { id: IFTTT_ID, url: IFTTT_URL, state }
+      { id: IFTTT_ID, url: IFTTT_URL }
     ]
   });
 });
