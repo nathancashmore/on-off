@@ -16,7 +16,8 @@ npm start
 ``` 
 
 ## Testing
-To run the tests
+To run the tests comment out all `const { Gpio } = require('onoff');` elements and associated code as library is only supported
+on Rasp Pi OS not Mac OS.
 ```
 npm test
 ```
